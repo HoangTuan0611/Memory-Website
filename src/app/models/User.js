@@ -11,6 +11,7 @@ const User = new Schema(
         email: { type: String, required: true },
         phone: { type: String, required: true },
         password: { type: String, required: true },
+        accessToken: { type: String, required: true },
         slug: { type: String, slug: 'name', unique: true },
     },
     {

@@ -1,5 +1,8 @@
 const Video = require('../models/Video');
+const User = require('../models/User');
 const { mutipleMongooseToObject } = require('../../util/mongoose');
+const { restore } = require('./VideoController');
+var localStorage = require('localStorage')
 
 class MeController {
     // [GET] /me/stored/videos
@@ -26,7 +29,15 @@ class MeController {
     }
 
     profileUsers(req, res, next){
-        res.render('auth/profile');
+        //res.render('auth/profile');
+        console.log(accessToken);
+        User.findOne({ accessToken: req.body.accessToken })
+        .then((user) =>
+            res.render('auth/profile', {
+                user: mongooseToObject(user),
+            }),
+        )
+        .catch(next);
     }
 }
 

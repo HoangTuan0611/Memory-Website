@@ -1,13 +1,9 @@
 const Login = require('../models/User');
 const bcrypt = require("bcrypt");
-var mongodb = require("mongodb");
-var mongoClient = mongodb.MongoClient;
-var express = require("express");
-var app = express();
 
-var jwt = require("jsonwebtoken");
-var accessTokenSecret = "myAccessTokenSecret1234567890";
-const { mongooseToObject } = require('../../util/mongoose');
+const jwt = require("jsonwebtoken");
+const accessTokenSecret = "myAccessTokenSecret1234567890";
+const localStorage = require('localStorage')
 
 class LoginController {
 
@@ -20,8 +16,6 @@ class LoginController {
     login(req, res, next){
         var email = req.body.email;
         var password = req.body.password;
-        console.log(req.body.email);
-        console.log(req.body.password);
         Login.findOne({
             "email":email
         }, function(error, user){
@@ -37,11 +31,18 @@ class LoginController {
                         var accessToken = jwt.sign({ email: email }, accessTokenSecret);
                         Login.findOneAndUpdate({
                             "email": email
-                        }, {
+                        },
+                        {
                             $set: {
                                 "accessToken": accessToken
                             }
-                        }, function (error, data) {
+                        }, 
+                        function (error, data) {
+                            var accessToken = data.accessToken;
+                            console.log(accessToken);
+                            localStorage.setItem("accessToken", accessToken);
+                            var value = localStorage.getItem(accessToken);
+                            console.log(value);
                             res.render('auth/profile');
                         });
                     } else {
@@ -50,7 +51,7 @@ class LoginController {
                             "message": "Password is not correct"
                         });
                     }
-                });
+                }); 
             }
         });
     }
@@ -61,11 +62,6 @@ class LoginController {
         var phone = req.body.phone;
         var password = req.body.password;
         var username = req.body.username;
-        console.log(name);
-        console.log(email);
-        console.log(phone);
-        console.log(password);
-        console.log(username);
         
         Login.findOne({
                 $or: [{
