@@ -1,0 +1,41 @@
+<div class="test">
+    <div class="hero">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Login</button>
+                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+            </div>
+            <form method="POST" action="/auth/login" id="login" class="input-group">
+                <input name="email" type="email" class="input-field" placeholder="Email">
+                <input name="password" type="text" class="input-field final" placeholder="Password">
+                <button type="submit" class="btn-cus-login button-custom">Log in</button>
+            </form>
+            <form method="POST" action="/auth/create" id="register" class="input-group">
+                <input type="text" class="input-field" id="username" name="username" placeholder="Username">
+                <input type="text" class="input-field" id="name" name="name" placeholder="Full Name">
+                <input type="email" class="input-field" id="email" name="email" placeholder="Email">
+                <input type="text" class="input-field" id="phone" name="phone" placeholder="Phone">
+                <input type="password" class="input-field final" id="password" name="password" placeholder="Enter Password">
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    var x = document.getElementById("login");
+    var y = document.getElementById("register");
+    var z = document.getElementById("btn");
+
+    function register(){
+        x.style.left = "-400px";
+        y.style.left = "50px";
+        z.style.left = "115px";
+    }
+    function login(){
+        x.style.left = "50px";
+        y.style.left = "450px";
+        z.style.left = "0";
+    }
+</script>

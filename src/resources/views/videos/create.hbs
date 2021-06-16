@@ -1,0 +1,20 @@
+<div class="mt-4">
+    <h3>Đăng video</h3>
+
+    <form method="POST" action="/videos/store">
+        <div class="form-group">
+            <label for="name">Tên video</label>
+            <input type="text" class="form-control" id="name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="description">Mô tả</label>
+            <input type="text" class="form-control" id="description" name="description">
+        </div>
+        <div class="form-group">
+            <label data-toggle="tooltip" data-placement="right" title="Ví dụ: https://www.youtube.com/watch?v=TkV613UBYBQ || VideoID sẽ là: TkV613UBYBQ" for="videoId">Video ID</label>
+            <input type="text" class="form-control" id="videoId" name="videoId">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Thêm video</button>
+    </form>
+</div>

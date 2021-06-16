@@ -1,0 +1,22 @@
+<div class="mt-4">
+    <div class="row">
+
+        {{#each videos}}
+        <div class="col-sm-6 col-lg-4">
+            <div class="card card-course-item">
+                <a href="/videos/{{this.slug}}">
+                    <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
+                </a>
+                <div class="card-body">
+                    <a href="/videos/{{this.slug}}">
+                        <h5 class="card-title">{{this.name}}</h5>
+                    </a>
+                    <p class="card-text">{{this.description}}</p>
+                    <a href="/videos/{{this.slug}}" class="btn btn-primary">Xem ngay</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        
+    </div>
+</div>
