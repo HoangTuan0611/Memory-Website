@@ -1,9 +1,9 @@
 const Login = require('../models/User');
+const { mongooseToObject } = require('../../util/mongoose');
 const bcrypt = require("bcrypt");
-
 const jwt = require("jsonwebtoken");
 const accessTokenSecret = "myAccessTokenSecret1234567890";
-const localStorage = require('localStorage')
+var localStorage = require('localStorage')
 
 class LoginController {
 
@@ -12,10 +12,22 @@ class LoginController {
         res.render('auth/login');
     }
 
+    show(req, res, next) {
+        Login.findOne({ slug: req.params.slug })
+        .then((user) =>
+            res.render('auth/profile', {
+                user: mongooseToObject(user),
+            }),
+        )
+        .catch(next);
+    }
+
     // [POST] /auth/login
     login(req, res, next){
         var email = req.body.email;
         var password = req.body.password;
+        console.log(email);
+        console.log(password);
         Login.findOne({
             "email":email
         }, function(error, user){
@@ -31,19 +43,18 @@ class LoginController {
                         var accessToken = jwt.sign({ email: email }, accessTokenSecret);
                         Login.findOneAndUpdate({
                             "email": email
-                        },
-                        {
+                        },{
                             $set: {
                                 "accessToken": accessToken
                             }
-                        }, 
+                        },
                         function (error, data) {
-                            var accessToken = data.accessToken;
-                            console.log(accessToken);
-                            localStorage.setItem("accessToken", accessToken);
-                            var value = localStorage.getItem(accessToken);
-                            console.log(value);
-                            res.render('auth/profile');
+                            // res.json({
+                            //     "status": "success",
+                            //     "message" : "Login successfull",
+                            //     "accessToken" : accessToken
+                            // })
+                            res.render('auth/profile', {user: mongooseToObject(user)});
                         });
                     } else {
                         res.json({
@@ -78,11 +89,9 @@ class LoginController {
 							"phone": phone,
 							"email": email,
 							"password": hash,
+                            "videos": [],
 						}, function (error, data) {
-							res.json({
-								"status": "success",
-								"message": "Signed up successfully. You can login now."
-							})
+                            res.redirect('/auth')
 						});
 					});
 				} else {

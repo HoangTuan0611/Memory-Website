@@ -14,7 +14,12 @@
             <label data-toggle="tooltip" data-placement="right" title="Ví dụ: https://www.youtube.com/watch?v=TkV613UBYBQ || VideoID sẽ là: TkV613UBYBQ" for="videoId">Video ID</label>
             <input type="text" class="form-control" id="videoId" name="videoId">
         </div>
-        
+        <input type="hidden" name="userslug" id="userslug">
         <button type="submit" class="btn btn-primary">Thêm video</button>
     </form>
 </div>
+<script>
+    var userslug = document.getElementById('userslug');
+    var slugvalue = localStorage.getItem('slug');
+    userslug.value = slugvalue;
+</script>

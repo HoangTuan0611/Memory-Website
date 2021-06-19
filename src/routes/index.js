@@ -9,7 +9,6 @@ function route(app) {
     app.use('/me', meRouter);
     app.use('/videos', videosRouter);
     app.use('/auth', loginRouter);
-
     app.use('/', siteRouter);
 }
 

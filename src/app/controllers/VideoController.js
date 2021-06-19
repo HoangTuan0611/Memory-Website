@@ -24,7 +24,7 @@ class VideoController {
         const video = new Video(req.body);
         video
             .save()
-            .then(() => res.redirect('/me/stored/videos'))
+            .then(() => res.redirect('/me/stored/videos/' + req.body.userslug))
             .catch((error) => {});
     }
 
@@ -42,7 +42,7 @@ class VideoController {
     // [PUT] /videos/:id
     update(req, res, next) {
         Video.updateOne({ _id: req.params.id }, req.body)
-            .then(() => res.redirect('/me/stored/videos'))
+            .then(() => res.redirect('/me/stored/videos/' + req.body.userslug))
             .catch(next);
     }
 

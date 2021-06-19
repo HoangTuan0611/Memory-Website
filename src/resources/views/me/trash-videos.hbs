@@ -1,6 +1,6 @@
 <div class="mt-4">
     <div>
-      <a href="/me/stored/videos">Danh sách video</a>
+      <a href="/me/stored/videos" id='list-videos'>Danh sách video</a>
       <h3>Video đã xóa</h3>
     </div>
 
@@ -29,7 +29,7 @@
             <tr>
               <td colspan="5" class="text-center">
                 Thùng rác trống.
-                <a href="/me/stored/videos">Danh sách video</a>
+                <a id="list-videos-temp" href="/me/stored/videos">Danh sách video</a>
               </td>
             </tr>
             {{/each}}
@@ -90,4 +90,7 @@
           restoreForm.submit();
         });
     });
+    var userslug = localStorage.getItem('slug');
+    document.getElementById('list-videos').setAttribute('href', '/me/stored/videos/' + userslug);
+    document.getElementById('list-videos-temp').setAttribute('href', '/me/stored/videos/' + userslug);
 </script>

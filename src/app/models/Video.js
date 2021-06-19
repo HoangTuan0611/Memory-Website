@@ -10,6 +10,7 @@ const Video = new Schema(
         description: { type: String },
         image: { type: String },
         videoId: { type: String, required: true },
+        userslug: { type: String, required: true },
         slug: { type: String, slug: 'name', unique: true },
     },
     {

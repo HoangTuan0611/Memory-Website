@@ -38,6 +38,7 @@
     "@fortawesome/fontawesome-free": "^5.15.3",
     "bcrypt": "^5.0.1",
     "express": "^4.17.1",
+    "express-formidable": "^1.2.0",
     "express-handlebars": "^5.1.0",
     "jsonwebtoken": "^8.5.1",
     "local-storage": "^2.0.0",
@@ -47,6 +48,7 @@
     "mongoose": "^5.12.2",
     "mongoose-delete": "^0.5.2",
     "mongoose-slug-generator": "^1.0.4",
+    "node-localstorage": "^2.2.1",
     "node-sass": "^6.0.0"
   },
   "devDependencies": {

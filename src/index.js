@@ -7,7 +7,7 @@ const handlebars = require('express-handlebars');
 const route = require('./routes');
 const db = require('./config/db');
 
-var localStorage = require('localStorage')
+
 
 
 // Connect to DB
