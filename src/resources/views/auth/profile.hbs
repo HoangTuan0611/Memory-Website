@@ -57,10 +57,14 @@
     </div>
 </div>
 <input type="hidden" value="{{user.slug}}" id="user">
+<input type="hidden" value="{{user.name}}" id="fullname">
 <script>
     var slug = document.getElementById("user").value;
     localStorage.setItem("slug", slug);
+    var username = document.getElementById("fullname").value;
+    localStorage.setItem("fullname", username);
     function Logout(){
         localStorage.removeItem('slug');
+        localStorage.removeItem('fullname');
     }
 </script>

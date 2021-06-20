@@ -34,20 +34,23 @@
       localStorage.removeItem('slug');
   }
   window.onload = function(){
-    if(!localStorage.getItem('slug')){
-      localStorage.setItem('slug', 'guest');
+    if(!localStorage.getItem('slug') || !localStorage.getItem('fullname')){
+      localStorage.setItem('slug', 'Guest');
+      localStorage.setItem('fullname', 'Guest');
     }
-    checkLogin();
+    checkedLogin();
   }
-  function checkLogin(){
+  function checkedLogin(){
     var isLogin = localStorage.getItem('slug');
+    var Login = localStorage.getItem('fullname');
     console.log(isLogin);
-    if(isLogin != 'guest'){
-      document.getElementById('username').innerHTML = '<img src="http://sofmie.com/public/img/dalat.jpeg" alt="" class="user-avatar"> ' + isLogin;
+    console.log(Login);
+    if(isLogin != 'Guest'){
+      document.getElementById('username').innerHTML = '<img src="http://sofmie.com/public/img/dalat.jpeg" alt="" class="user-avatar"> ' + Login;
     }
     else{
       if (typeof isCheckLogin !== "undefined" && isCheckLogin){
-        CheckLogin();
+        checkLogin();
       }
     }
   }
