@@ -18,11 +18,11 @@ Nội dung
   
 ---
 
-2. Thư viện và công nghệ
+Thư viện và công nghệ
 
-3. Tác giả
+Tác giả
 
-4. Cách cài đặt
+Cách cài đặt
 
 ---
 
