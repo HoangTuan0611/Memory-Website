@@ -2,7 +2,7 @@
     <div class="row">
 
         {{#each videos}}
-        <div class="col-sm-6 col-lg-4">
+        <div class="card-video col-sm-6 col-lg-4">
             <div class="card card-course-item">
                 <a href="/videos/{{this.slug}}">
                     <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
@@ -18,5 +18,41 @@
         </div>
         {{/each}}
         
+    </div>
+</div>
+<script>
+    var isCheckLogin = true;
+    function checkLogin(){
+        var checked = localStorage.getItem('checked');
+        if(checked){
+
+        }
+        else{
+            setTimeout(function() {
+            $("#checkLogin").modal("show");
+            }, 500);
+            var checked = localStorage.setItem('checked', 'checked')
+        }
+    }
+</script>
+<div class="modal col-12 fade" id="checkLogin" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Chào mừng bạn đến với website memory</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <span>Vui lòng đăng nhập để có thể đăng video cũng như quản lý video của bạn!!!</span>
+                <a href="/auth" class="nav-link pr-0 leading-none">
+                    <button class="button-go-to-login" style="float: right;" type="submit">
+                        Go to Login
+                    </button>
+                </a>
+            </div>
+        </div>
     </div>
 </div>

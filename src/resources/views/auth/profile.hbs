@@ -10,11 +10,11 @@
                                 Thông tin tài khoản
                             </span>
                         </div>
-                        <div class="col-md-12" style="cursor: pointer;text-align: center;">
-                            <a style="text-decoration: none; color: #000;" class=" a-custom-header" href="/auth">
+                        {{!-- <div class="col-md-12" style="cursor: pointer;text-align: center;">
+                            <a onclick="Logout()" style="text-decoration: none; color: #000;" class=" a-custom-header" href="/auth">
                                 <span>Đăng xuất</span>
                             </a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                         <div class="row">
                             <div class="col-md-12 form-group">
                                 <label for="">Số điện thoại đăng nhập</label>
-                                <input type="text" class="form-control" value="{{user.phone}}" disabled>
+                                <input type="text" class="form-control" value="{{user.phone}}" placeholder="Bạn chưa đăng ký account" disabled>
                                 <span style="font-size: 12px;">*Liên hệ hotline Memory nếu bạn có nhu cầu thay đổi số điện thoại đăng nhập và mật khẩu</span>
                             </div>
                             <div class="col-md-12 form-group">
@@ -35,25 +35,19 @@
                                 <form method="POST" action="/auth/{{user._id}}?_method=PUT">
                                     <div class="col-md-12 form-group">
                                         <div class="row">
-                                            <label class="col-md-4 col-lg-3" for="">Full name</label>
-                                            <input value="{{user.name}}" id="name" name="name" type="text" class="email form-control col-lg-9 col-md-8" placeholder="Hoàng Tuấn" required>
+                                            <label class="field-title col-md-4 col-lg-3" for="">Full name</label>
+                                            <input value="{{user.name}}" id="name" name="name" type="text" class="email form-control col-lg-9 col-md-8" placeholder="Bạn chưa đăng ký account" disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-12 form-group">
                                         <div class="row">
-                                            <label class="col-md-4 col-lg-3" for="">Email</label>
-                                            <input value="{{user.email}}" id="email" name="email" type="email" class="name form-control col-lg-9 col-md-8" placeholder="nguyenhoangtuan@gmail.com" required>
+                                            <label class="field-title col-md-4 col-lg-3" for="">Email</label>
+                                            <input value="{{user.email}}" id="email" name="email" type="email" class="name form-control col-lg-9 col-md-8" placeholder="Bạn chưa đăng ký account" disabled>
                                         </div>
                                     </div>
-                                    <div class="col-md-12 form-group">
-                                        <div class="row">
-                                            <label class="col-md-4 col-lg-3" for="">Phone</label>
-                                            <input value="{{user.phone}}" id="phone" name="phone" type="text" class="city form-control col-lg-9 col-md-8" placeholder="0123456789">
-                                        </div>
-                                    </div>
-                                    <button type="submit" name="submit" style="float: right;" class="button button-custom">
+                                    {{!-- <button type="submit" name="submit" style="float: right;" class="button button-custom">
                                         Xác nhận
-                                    </button>
+                                    </button> --}}
                                 </form>
                             </div>
                         </div>
@@ -66,4 +60,7 @@
 <script>
     var slug = document.getElementById("user").value;
     localStorage.setItem("slug", slug);
+    function Logout(){
+        localStorage.removeItem('slug');
+    }
 </script>
