@@ -2,6 +2,8 @@ Website lưu trữ video từ youtube
 ---
 Website là 1 nơi lưu trữ, giúp cho người dùng có thể lưu trữ video cũng như biết đến những video hay ho.
 
+https://youtu.be/2o6ybV8GdaQ
+
 Nội dung
 
 1. Chức năng
