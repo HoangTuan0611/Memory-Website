@@ -28,7 +28,7 @@ Chức năng
   
   1. Đăng nhập / Đăng ký
 
-  ![image](https://user-images.githubusercontent.com/48887111/122668969-272e6500-d1e5-11eb-9099-9aa7b1134180.png)![image](https://user-images.githubusercontent.com/48887111/122668975-331a2700-d1e5-11eb-81cc-57d2ce610a8d.png)
+  ![image](https://user-images.githubusercontent.com/48887111/122668969-272e6500-d1e5-11eb-9099-9aa7b1134180.png) ![image](https://user-images.githubusercontent.com/48887111/122668975-331a2700-d1e5-11eb-81cc-57d2ce610a8d.png)
 
   2. Xem video
   
